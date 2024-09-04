@@ -30,7 +30,7 @@ void mpf_arctan(mpf_t result, mpf_t x, unsigned long int precision) {
 }
 
 int main() {
-    mpf_set_default_prec(1000000); // Set precision to 1,000,000 bits
+    mpf_set_default_prec(100000000); // Set precision to 1,000,000 bits
 
     mpf_t arctan_half, arctan_third, sum, pi, one_half, one_third;
     mpf_init(arctan_half);
