@@ -1,0 +1,6 @@
+compilation commands
+
+
+gcc -o pi_chudnovsky Chudnovsky_formula.c -lgmp
+
+gcc Ramanujan.c -o Ramanujan  -lm
