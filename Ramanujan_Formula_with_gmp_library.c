@@ -12,7 +12,7 @@ void factorial(mpz_t result, int n) {
 
 int main() {
     int k;
-    mpf_set_default_prec(33210); // Set precision to about 1000 decimal places (bits of precision)
+    mpf_set_default_prec(3321928); // Set precision to around 100,000 decimal places (~3321928 bits)
 
     mpf_t sum, term, pi_inverse, pi, factor, temp1, temp2, sqrt2, denominator;
     mpz_t numerator, factorial_k, factorial_4k;
@@ -42,8 +42,8 @@ int main() {
     // Set sum to 0 initially
     mpf_set_ui(sum, 0);
 
-    // Iterate for 20 terms to approximate pi
-    for (k = 0; k < 20; k++) {
+    // Iterate for 200 terms to approximate pi (more terms for better precision)
+    for (k = 0; k < 200; k++) {
         // Calculate factorial(4*k)
         factorial(factorial_4k, 4 * k);
 
@@ -76,8 +76,8 @@ int main() {
     // pi = 1 / pi_inverse
     mpf_ui_div(pi, 1, pi_inverse);
 
-    // Print the result with 1000 decimal places
-    gmp_printf("Approximation of pi: %.1000Ff\n", pi);
+    // Print the result with 100,000 decimal places
+    gmp_printf("Approximation of pi: %.100000Ff\n", pi);
 
     // Clear memory
     mpf_clear(sum);
@@ -95,3 +95,5 @@ int main() {
 
     return 0;
 }
+
+// Command to compile with gcc: gcc Ramanujan_Formula_with_gmp_library.c -o Ramanujan_gmp -lgmp -lm
